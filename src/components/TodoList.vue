@@ -31,14 +31,22 @@ export default {
     return {
       todo: "",
       todos: [],
+      count: 0,
     };
   },
   methods: {
     addTodo: function (todo) {
-      this.todos.push({ id: this.todos.length, text: todo, check: false });
+      this.todos.push({ id: this.count, text: todo, check: false });
+      this.count++;
     },
-    removeTodo: function (index) {
-      this.todos.splice(index, 1);
+    removeTodo: function (todoId) {
+      for (let i = 0; i < this.todos.length; i++) {
+        let currentTodo = this.todos[i];
+        if (todoId === currentTodo.id) {
+          this.todos.splice(i, 1);
+          break;
+        }
+      }
     },
   },
 };
