@@ -10,9 +10,9 @@
       <label class="todoListLabel">Todos</label>
 
       <div class="todoContainer" v-for="todo in todos" :key="todo.id">
-        <input class="todoCheck" type="checkbox" v-model="todos[todo.id].check" />
+        <input class="todoCheck" type="checkbox" v-model="todo.check" />
 
-        <input class="todoText" type="text" v-model="todos[todo.id].text" />
+        <input class="todoText" type="text" v-model="todo.text" />
 
         <button class="todoDeleteButton" v-on:click="removeTodo(todo.id)">Delete</button>
       </div>
@@ -36,11 +36,9 @@ export default {
   methods: {
     addTodo: function (todo) {
       this.todos.push({ id: this.todos.length, text: todo, check: false });
-      console.log(JSON.stringify(this.todos));
     },
-    removeTodo: function (todoId) {
-      console.log(todoId);
-      this.todos.splice(todoId, 1);
+    removeTodo: function (index) {
+      this.todos.splice(index, 1);
     },
   },
 };
