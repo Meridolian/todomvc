@@ -20,8 +20,7 @@ export default {
 
 <style>
 #app {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: Open-Sans,Poppins,Helvetica,Arial,sans-serif;
   margin: 0;
   width: 100%;
   height: 100%;

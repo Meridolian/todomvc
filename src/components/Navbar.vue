@@ -30,8 +30,8 @@ export default {
 .navbarContainer {
   width: 100%;
   height: 7.5vh;
-  background-color: rgba(0, 0, 0, 0.75);
-  color: white;
+  background-color: #0f4471;
+  color: #fc3c3c;
   border-radius: 10px;
 }
 
@@ -47,7 +47,8 @@ button {
   box-shadow: none !important;
 }
 button:hover {
-  background-color: rgba(255, 255, 255, 0.25);
+  color: #fc3c3c;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .title {

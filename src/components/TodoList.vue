@@ -56,11 +56,12 @@ export default {
   max-width: 100%;
   margin: 2.5%;
   padding: 1.5%;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: white;
   border-radius: 10px;
+  border: #0f4471 5px solid;
 }
 .todoFormLabel {
-  color: white;
+  color: #0f4471;
   font-size: 30px;
   vertical-align: middle;
 }
@@ -70,10 +71,10 @@ export default {
   height: 40px;
   width: 75%;
   border-radius: 10px;
+  border: #0f4471 2.5px solid;
   font-size: 25px;
   text-align: center;
-  color: rgba(0, 0, 0, 0.75);
-  border: none;
+  color: #0f4471;
   outline: none !important;
   box-shadow: none !important;
 }
@@ -83,17 +84,17 @@ export default {
   vertical-align: middle;
   margin-left: 5%;
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.75);
+  color: #0f4471;
   font-size: 20px;
   border-radius: 10px;
-  border: none;
+  border: #0f4471 2.5px solid;
   outline: none !important;
   box-shadow: none !important;
 }
 .todoFormButton:hover {
-  background-color: transparent;
+  background-color: #0f4471;
   color: white;
-  border: white 2.5px solid;
+  border: none;
 }
 
 .todoList {
@@ -104,13 +105,14 @@ export default {
 }
 
 .todoListLabel {
+  color: #0f4471;
   font-size: 30px;
 }
 
 .todoContainer {
   height: 50px;
   width: 100%;
-  border-top: rgba(0, 0, 0, 0.75) 2px solid;
+  border-top: #0f4471 2px solid;
   margin-top: 1%;
   vertical-align: text-bottom;
 }
@@ -120,7 +122,7 @@ export default {
   width: 25px;
   border-radius: 10px;
   vertical-align: middle;
-  margin: 0.75%;
+  margin: 1%;
 }
 
 .todoCheck:checked {
@@ -134,10 +136,10 @@ export default {
   border: none;
   font-size: 25px;
   vertical-align: middle;
-  color: rgba(0, 0, 0, 0.75);
+  color: #0f4471;
 }
 .todoText:hover {
-  border: rgba(0, 0, 0, 0.75) 2.5px solid;
+  border: #0f4471 2.5px solid;
 }
 
 .todoDeleteButton {
@@ -146,15 +148,16 @@ export default {
   width: 7.5%;
   float: right;
   font-size: 20px;
+  color: #fc3c3c;
   background-color: white;
   border-radius: 10px;
-  border: rgba(0, 0, 0, 0.75) 2.5px solid;
+  border: #fc3c3c 2.5px solid;
   outline: none !important;
   box-shadow: none !important;
   cursor: pointer;
 }
 .todoDeleteButton:hover {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: #fc3c3c;
   color: white;
   border: none;
 }
