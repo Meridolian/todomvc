@@ -2,64 +2,52 @@
   <div class="todoListContainer">
     <div class="todoForm">
       <label class="todoFormLabel">Add todo</label>
-      <input class="todoFormInput " type="text" v-model="todo" />
+      <input class="todoFormInput" type="text" v-model="todo" />
       <button class="todoFormButton" v-on:click="addTodo(todo)">ADD</button>
     </div>
 
-    <div class="todoList">
+    <div class="todoList" v-if="todos.length > 0">
       <label class="todoListLabel">Todos</label>
 
-      <div class="todoContainer">
-        
+      <div class="todoContainer" v-for="todo in todos" :key="todo.id">
+        <input class="todoCheck" type="checkbox" v-model="todos[todo.id].check" />
+
+        <input class="todoText" type="text" v-model="todos[todo.id].text" />
+
+        <button class="todoDeleteButton" v-on:click="removeTodo(todo.id)">Delete</button>
       </div>
+    </div>
+    <div class="noTodos" v-else>
+      <label class="todoListLabel">You don't have any todo yet, add it !</label>
     </div>
   </div>
 </template>
 
 <script>
-import Vue from "vue";
-import Vuex from "vuex";
-
-Vue.use(Vuex);
-
-const store = new Vuex.Store({
-  state: {
-    todos: [],
-  },
-  mutations: {
-    addTodo(state, todo) {
-      state.todos.push(todo);
-    },
-    removeTodo(state, todoId) {
-      state.todos.splice(todoId, 1);
-    },
-  },
-});
-
 export default {
   name: "TodoList",
   props: {},
-  store: store,
   data() {
     return {
-      id: 0,
       todo: "",
+      todos: [],
     };
   },
   methods: {
-    addTodo: function(todo){
-      this.addTodo(this.state, todo);
+    addTodo: function (todo) {
+      this.todos.push({ id: this.todos.length, text: todo, check: false });
+      console.log(JSON.stringify(this.todos));
     },
-    removeTodo: function(todoId) {
-      this.removeTodo(this.state, todoId);
-    }
-  }
+    removeTodo: function (todoId) {
+      console.log(todoId);
+      this.todos.splice(todoId, 1);
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 .todoListContainer {
   height: 100%;
   width: 100%;
@@ -110,23 +98,72 @@ export default {
   border: white 2.5px solid;
 }
 
-
 .todoList {
-
+  max-width: 100%;
+  max-height: 75%;
+  margin: 2.5%;
+  padding: 1.5%;
 }
+
 .todoListLabel {
-
+  font-size: 30px;
 }
+
 .todoContainer {
-
+  height: 50px;
+  width: 100%;
+  border-top: rgba(0, 0, 0, 0.75) 2px solid;
+  margin-top: 1%;
+  vertical-align: text-bottom;
 }
-.todoLabel {
 
+.todoCheck {
+  height: 25px;
+  width: 25px;
+  border-radius: 10px;
+  vertical-align: middle;
+  margin: 0.75%;
 }
-.todoModifyButton {
 
+.todoCheck:checked {
+  background-color: red;
 }
+
+.todoText {
+  margin-left: 0.5%;
+  width: 75%;
+  border-radius: 10px;
+  border: none;
+  font-size: 25px;
+  vertical-align: middle;
+  color: rgba(0, 0, 0, 0.75);
+}
+.todoText:hover {
+  border: rgba(0, 0, 0, 0.75) 2.5px solid;
+}
+
 .todoDeleteButton {
+  margin: 0.75%;
+  height: 35px;
+  width: 7.5%;
+  float: right;
+  font-size: 20px;
+  background-color: white;
+  border-radius: 10px;
+  border: rgba(0, 0, 0, 0.75) 2.5px solid;
+  outline: none !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+.todoDeleteButton:hover {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  border: none;
+}
 
+.noTodos {
+  max-width: 100%;
+  margin: 2.5%;
+  padding: 1.5%;
 }
 </style>
